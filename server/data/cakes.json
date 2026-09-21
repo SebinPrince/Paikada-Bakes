@@ -1,0 +1,578 @@
+[
+  {
+    "id": "cake-1",
+    "name": "Vanilla",
+    "price": "₹600 / kg",
+    "category": "classic",
+    "image": "images/white_forest_cake.jpg",
+    "desc": "Classic soft sponge cake layered with rich vanilla bean cream.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-2",
+    "name": "Black Forest",
+    "price": "₹700 / kg",
+    "category": "classic",
+    "image": "images/black_forest_cake.jpg",
+    "desc": "Traditional chocolate sponge layered with whipped cream and cherries, topped with chocolate curls.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-3",
+    "name": "White Forest",
+    "price": "₹700 / kg",
+    "category": "classic",
+    "image": "images/white_forest_cake.jpg",
+    "desc": "Light vanilla sponge with sweet cherries, fresh cream, and white chocolate curls.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-4",
+    "name": "Oreo Cake",
+    "price": "₹800 / kg",
+    "category": "classic",
+    "image": "images/oreo_cake.png",
+    "desc": "Decadent sponge cake layered with crushed Oreo cookies and sweet cream frosting.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-5",
+    "name": "Red Velvet",
+    "price": "₹850 / kg",
+    "category": "classic",
+    "image": "images/red_velvet_cake.png",
+    "desc": "Vibrant crimson layers with a hint of cocoa, paired with signature cream cheese frosting.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-6",
+    "name": "Green Velvet",
+    "price": "₹850 / kg",
+    "category": "classic",
+    "image": "images/green_velvet_cake.png",
+    "desc": "Vibrant green velvet sponge layers with smooth frosting.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-7",
+    "name": "Blue Velvet",
+    "price": "₹850 / kg",
+    "category": "classic",
+    "image": "images/blue_velvet_cake.png",
+    "desc": "Elegant blue velvet cake layers with sweet frosting.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-8",
+    "name": "Red Bee",
+    "price": "₹1000 / kg",
+    "category": "classic",
+    "image": "images/red_velvet_cake.png",
+    "desc": "Special red velvet combination cake with premium fillings and decorations.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-9",
+    "name": "Spanish Delight",
+    "price": "₹1000 / kg",
+    "category": "classic",
+    "image": "images/spanish_delight_cake.png",
+    "desc": "Popular rich sponge cake layered with authentic, creamy Spanish delight custard flavor.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-10",
+    "name": "Spanish Delight with Pista",
+    "price": "₹1100 / kg",
+    "category": "classic",
+    "image": "images/spanish_delight_pista.jpg",
+    "desc": "Rich Spanish delight cake layered and topped with crunchy roasted pistachios.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-11",
+    "name": "Chocolate Cake",
+    "price": "₹850 / kg",
+    "category": "chocolate",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Classic rich chocolate sponge covered in silky chocolate fudge frosting.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-12",
+    "name": "Vancho",
+    "price": "₹950 / kg",
+    "category": "chocolate",
+    "image": "images/black_forest_cake.jpg",
+    "desc": "A premium blend of dark chocolate and vanilla layers for the best of both worlds.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-13",
+    "name": "Choco Velvet",
+    "price": "₹1000 / kg",
+    "category": "chocolate",
+    "image": "images/red_velvet_cake.png",
+    "desc": "Chocolate sponge cake layered with rich, velvet cream cheese frosting.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-14",
+    "name": "Milky Nut",
+    "price": "₹1000 / kg",
+    "category": "chocolate",
+    "image": "images/spanish_delight_cake.png",
+    "desc": "White chocolate base layered with mixed nuts and rich whipped cream.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-15",
+    "name": "Choco Nut",
+    "price": "₹1000 / kg",
+    "category": "chocolate",
+    "image": "images/snickers_cake.png",
+    "desc": "Rich chocolate cake loaded with crunchy toasted nuts and chocolate ganache.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-16",
+    "name": "Milky Chocolate",
+    "price": "₹1000 / kg",
+    "category": "chocolate",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Smooth and sweet milk chocolate layered sponge cake.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-17",
+    "name": "Snickers Cake",
+    "price": "₹1000 / kg",
+    "category": "chocolate",
+    "image": "images/snickers_cake.png",
+    "desc": "Peanuts, rich caramel, and chocolate cream mimicking the classic Snickers bar.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-18",
+    "name": "Chocolate Caramel",
+    "price": "₹1000 / kg",
+    "category": "chocolate",
+    "image": "images/snickers_cake.png",
+    "desc": "Mouthwatering combination of salted caramel and dark chocolate ganache.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-19",
+    "name": "Milky Almond Cake",
+    "price": "₹1000 / kg",
+    "category": "chocolate",
+    "image": "images/spanish_delight_pista.jpg",
+    "desc": "Creamy white chocolate layered cake topped with sliced almonds.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-20",
+    "name": "Choco Almond",
+    "price": "₹1000 / kg",
+    "category": "chocolate",
+    "image": "images/snickers_cake.png",
+    "desc": "Dark chocolate sponge layered with toasted almond flakes.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-21",
+    "name": "Honey Almond Cake",
+    "price": "₹1100 / kg",
+    "category": "chocolate",
+    "image": "images/spanish_delight_pista.jpg",
+    "desc": "Sweet honey-infused cake layered with crispy caramelized almonds.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-22",
+    "name": "Nutella Cake",
+    "price": "₹1200 / kg",
+    "category": "chocolate",
+    "image": "images/ferrero_rocher_cake.jpg",
+    "desc": "Heavenly cake layered and glazed with rich, creamy hazelnut Nutella spread.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-23",
+    "name": "Nutella Chocochips Cake",
+    "price": "₹1300 / kg",
+    "category": "chocolate",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Nutella cream cake loaded with crunchy chocolate chips.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-24",
+    "name": "Chocolate Overload",
+    "price": "₹1300 / kg",
+    "category": "chocolate",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Multiple layers of dark, milk, and white chocolate frosting and toppings.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-25",
+    "name": "Chocolate Truffle",
+    "price": "₹1200 / kg",
+    "category": "chocolate",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Dense, moist dark chocolate cake layered with silky chocolate ganache.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-26",
+    "name": "Chocolate Truffle Caramel Cake",
+    "price": "₹1300 / kg",
+    "category": "chocolate",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Silky chocolate truffle cake combined with rich, warm caramel drizzle.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-27",
+    "name": "White Chocolate Truffle",
+    "price": "₹1200 / kg",
+    "category": "chocolate",
+    "image": "images/white_forest_cake.jpg",
+    "desc": "Sweet and elegant white chocolate ganache truffle cake.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-28",
+    "name": "White Chocolate Truffle Nut Cake",
+    "price": "₹1350 / kg",
+    "category": "chocolate",
+    "image": "images/white_forest_cake.jpg",
+    "desc": "White chocolate truffle cake loaded with premium roasted nuts.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-29",
+    "name": "Kitkat Cake",
+    "price": "₹1200 / kg",
+    "category": "chocolate",
+    "image": "images/kitkat_cake.jpg",
+    "desc": "A fun celebration cake surrounded by Kitkat bars and topped with gems.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-30",
+    "name": "Ferrero Rocher",
+    "price": "₹1500 / kg",
+    "category": "chocolate",
+    "image": "images/ferrero_rocher_cake.jpg",
+    "desc": "Decadent hazelnut chocolate cake decorated with real Ferrero Rocher truffles.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-31",
+    "name": "Kunafa Cake",
+    "price": "₹1500 / kg",
+    "category": "chocolate",
+    "image": "images/kunafa_cake.jpg",
+    "desc": "Traditional Middle Eastern crispy Kunafa pastry layered with sweet cream and chocolate.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-32",
+    "name": "Caramel Cake",
+    "price": "₹950 / kg",
+    "category": "caramel",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "Golden sponge cake drizzled with rich, home-style warm caramel sauce.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-33",
+    "name": "Caramel Coffee Cake",
+    "price": "₹1000 / kg",
+    "category": "caramel",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "A perfect blend of aromatic espresso coffee and sweet caramel drizzle.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-34",
+    "name": "Butter Scotch",
+    "price": "₹950 / kg",
+    "category": "caramel",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "Golden vanilla sponge layered with rich butterscotch cream and crunchy pralines.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-35",
+    "name": "Milky Butterscotch",
+    "price": "₹1000 / kg",
+    "category": "caramel",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "Rich butterscotch cake layered with sweet milk cream.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-36",
+    "name": "Choco Butterscotch",
+    "price": "₹1000 / kg",
+    "category": "caramel",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "Dark chocolate layers combined with crunchy butterscotch praline.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-37",
+    "name": "Caramel Butterscotch",
+    "price": "₹1200 / kg",
+    "category": "caramel",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "Caramel drip cake combined with rich butterscotch cream and crunch.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-38",
+    "name": "Choco Caramel Butterscotch",
+    "price": "₹1250 / kg",
+    "category": "caramel",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "Indulgent mix of chocolate, rich caramel, and crunchy butterscotch.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-39",
+    "name": "Irish Coffee Cake",
+    "price": "₹1100 / kg",
+    "category": "caramel",
+    "image": "images/black_forest_cake.jpg",
+    "desc": "Spiced coffee sponge infused with Irish cream coffee flavor.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-40",
+    "name": "Irish Coffee Chocolate Cake",
+    "price": "₹1200 / kg",
+    "category": "caramel",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Irish coffee sponge combined with layers of dark chocolate ganache.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-41",
+    "name": "Dalgona Coffee Cake",
+    "price": "₹1100 / kg",
+    "category": "caramel",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "A popular whip coffee flavored cake with sweet creamy frosting.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-42",
+    "name": "Pineapple Cake",
+    "price": "₹850 / 1000",
+    "category": "exotic",
+    "image": "images/white_forest_cake.jpg",
+    "desc": "Soft sponge soaked in pineapple syrup, filled with sweet fruit chunks.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-43",
+    "name": "Strawberry Cake",
+    "price": "₹850 / kg",
+    "category": "exotic",
+    "image": "images/red_velvet_cake.png",
+    "desc": "Refreshing vanilla cake layered with real strawberry compote and cream.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-44",
+    "name": "Blueberry Cake",
+    "price": "₹850 / kg",
+    "category": "exotic",
+    "image": "images/blue_velvet_cake.png",
+    "desc": "Fluffy vanilla sponge filled with juicy blueberry pie filling.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-45",
+    "name": "Pista Cake",
+    "price": "₹850 / 1000",
+    "category": "exotic",
+    "image": "images/spanish_delight_pista.jpg",
+    "desc": "Elegant green pistachio cake made with roasted pistachio paste.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-46",
+    "name": "Vanstraw Cake",
+    "price": "₹1000 / kg",
+    "category": "exotic",
+    "image": "images/red_velvet_cake.png",
+    "desc": "Tasty combination of vanilla and strawberry layers.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-47",
+    "name": "Tender Coconut",
+    "price": "₹850 / 1200",
+    "category": "exotic",
+    "image": "images/tender_coconut_cake.jpg",
+    "desc": "Kerala's favorite: soft cake layered with fresh tender coconut pulp and coconut cream.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-48",
+    "name": "Fresh Fruit Cake",
+    "price": "₹1500 / kg",
+    "category": "exotic",
+    "image": "images/white_forest_cake.jpg",
+    "desc": "Light vanilla sponge loaded with a variety of fresh seasonal fruits.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-49",
+    "name": "Rasmalai",
+    "price": "₹1300 / kg",
+    "category": "exotic",
+    "image": "images/rasmalai_cake.jpg",
+    "desc": "Royal Indian dessert fusion cake with cardamom, saffron, and real Rasmalai pieces.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-50",
+    "name": "Rasmalai with Butterscotch",
+    "price": "₹1400 / kg",
+    "category": "exotic",
+    "image": "images/rasmalai_cake.jpg",
+    "desc": "Rasmalai fusion cake layered with crunchy butterscotch pralines.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-51",
+    "name": "Juans Rainbow Cake",
+    "price": "₹1200 / kg",
+    "category": "exotic",
+    "image": "images/rainbow_cake.jpg",
+    "desc": "A colorful, vibrant multi-layered sponge cake.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-52",
+    "name": "Rainbow Cake",
+    "price": "₹1600 / kg",
+    "category": "exotic",
+    "image": "images/rainbow_cake.jpg",
+    "desc": "Bright and spectacular multi-layered rainbow cake, perfect for kids.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-53",
+    "name": "Brownie",
+    "price": "₹800 - 1500",
+    "category": "treats",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Fudgy, dense chocolate brownies baked to perfection.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-54",
+    "name": "Cheese Cake",
+    "price": "₹1000 / kg",
+    "category": "treats",
+    "image": "images/white_forest_cake.jpg",
+    "desc": "Creamy, baked or cold cream cheese cake on a biscuit crust.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-55",
+    "name": "Dream Cake",
+    "price": "₹1000 - 2000",
+    "category": "treats",
+    "image": "images/dream_cake.jpg",
+    "desc": "The viral 5-in-1 layered chocolate dream cake served in a premium tin.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-56",
+    "name": "Butterscotch Pudding Cake",
+    "price": "₹800",
+    "category": "treats",
+    "image": "images/butterscotch_cake.jpg",
+    "desc": "Soft cake layers filled with creamy butterscotch pudding.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-57",
+    "name": "Bento Cake",
+    "price": "₹300",
+    "category": "treats",
+    "image": "images/bento_cake.jpg",
+    "desc": "Mini 250g cake in a cute box, perfect for small celebrations.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-58",
+    "name": "Tappa Cake",
+    "price": "₹300",
+    "category": "treats",
+    "image": "images/dream_cake.jpg",
+    "desc": "Delightful cup-style or jar-style premium cake dessert.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-59",
+    "name": "Cup Cake",
+    "price": "₹40",
+    "category": "treats",
+    "image": "images/bento_cake.jpg",
+    "desc": "Mini single-serving cake topped with swirls of delicious frosting.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-60",
+    "name": "Sicles",
+    "price": "₹80",
+    "category": "treats",
+    "image": "images/rainbow_cake.jpg",
+    "desc": "Cake pops shaped like popsicles, coated in colorful chocolate.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-61",
+    "name": "Pops",
+    "price": "₹40",
+    "category": "treats",
+    "image": "images/kitkat_cake.jpg",
+    "desc": "Bite-sized cake balls on sticks, dipped in rich chocolate.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-62",
+    "name": "Donut",
+    "price": "₹40 / 60",
+    "category": "treats",
+    "image": "images/chocolate_truffle_cake.jpg",
+    "desc": "Freshly fried glazed donuts with various chocolate toppings.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-63",
+    "name": "Doll Cake",
+    "price": "Flavour + ₹250",
+    "category": "treats",
+    "image": "images/rainbow_cake.jpg",
+    "desc": "A beautiful custom princess/doll cake for birthdays.",
+    "isAvailable": true
+  },
+  {
+    "id": "cake-64",
+    "name": "Theme Cake",
+    "price": "Custom",
+    "category": "treats",
+    "image": "images/rainbow_cake.jpg",
+    "desc": "Theme cake (Cake flavour + fondant + extra settings + working charge details).",
+    "isAvailable": true
+  }
+]
