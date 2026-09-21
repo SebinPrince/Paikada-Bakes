@@ -1,6 +1,12 @@
-const API_BASE = (window.location.hostname === 'localhost' && window.location.port !== '5000')
-  ? 'http://localhost:5000/api'
-  : '/api';
+const API_BASE = (() => {
+  if (
+    window.location.protocol === 'file:' ||
+    ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '5000')
+  ) {
+    return 'http://localhost:5000/api';
+  }
+  return '/api';
+})();
 
 const AUTH_KEY = 'paikada_owner_authenticated';
 
