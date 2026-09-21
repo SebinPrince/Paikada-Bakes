@@ -967,5 +967,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // --- Interactive Ambient Light Tracking on Cake Hover ---
+  document.addEventListener('mousemove', (e) => {
+    const cakeTarget = e.target.closest('.menu-img-wrapper, .gallery-item, .hero-image-wrapper');
+    if (!cakeTarget) return;
+    const rect = cakeTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    cakeTarget.style.setProperty('--light-x', `${Math.round(x)}px`);
+    cakeTarget.style.setProperty('--light-y', `${Math.round(y)}px`);
+  });
 });
 
