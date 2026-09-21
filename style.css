@@ -873,6 +873,20 @@ header.scrolled {
   transform: translateX(3px);
 }
 
+.phone-link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+.phone-link:hover {
+  color: var(--color-pink-accent);
+  text-decoration: underline;
+}
+
 .contact-actions {
   display: flex;
   flex-direction: column;
