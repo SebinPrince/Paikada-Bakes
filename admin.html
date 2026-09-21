@@ -11,28 +11,64 @@
 
 <body class="admin-body">
 
-  <!-- Admin Header -->
-  <header class="admin-header">
-    <div class="admin-header-container">
-      <div class="admin-brand">
-        <a href="index.html" class="logo">Paikada <span>Bakes</span></a>
-        <span class="admin-badge">Admin Portal</span>
-      </div>
-      <div class="admin-nav-actions">
-        <a href="index.html" class="btn btn-outline" target="_blank">View Live Website &rarr;</a>
-        <button id="refresh-btn" class="btn btn-refresh" title="Refresh Data">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M23 4v6h-6M1 20v-6h6"></path>
-            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+  <!-- Owner Authentication Gate (Shown to non-owners) -->
+  <div class="login-wrapper" id="admin-login-screen">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="login-logo">Paikada <span>Bakes</span></div>
+        <div class="login-lock-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
           </svg>
-          Refresh
+        </div>
+        <h2>Owner Access Portal</h2>
+        <p>This portal is strictly reserved for the bakery owner to view orders and manage menu items.</p>
+      </div>
+
+      <form id="owner-login-form" class="login-form">
+        <div class="form-group">
+          <label for="admin-password-input">Owner Password</label>
+          <input type="password" id="admin-password-input" placeholder="Enter owner password..." required autocomplete="current-password">
+        </div>
+        <div id="login-error-msg" class="login-error-msg"></div>
+        <button type="submit" class="btn btn-primary btn-block" id="login-submit-btn">
+          Unlock Dashboard
         </button>
+      </form>
+      <div class="login-footer">
+        <a href="index.html" class="back-link">&larr; Return to Customer Website</a>
       </div>
     </div>
-  </header>
+  </div>
 
-  <main class="admin-main">
-    <div class="admin-container">
+  <!-- Protected Admin Dashboard (Only visible to authenticated owner) -->
+  <div id="admin-dashboard-view" style="display: none;">
+
+    <!-- Admin Header -->
+    <header class="admin-header">
+      <div class="admin-header-container">
+        <div class="admin-brand">
+          <a href="index.html" class="logo">Paikada <span>Bakes</span></a>
+          <span class="admin-badge">Owner Portal</span>
+        </div>
+        <div class="admin-nav-actions">
+          <a href="index.html" class="btn btn-outline" target="_blank">View Live Website &rarr;</a>
+          <button id="refresh-btn" class="btn btn-refresh" title="Refresh Data">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 4v6h-6M1 20v-6h6"></path>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+            Refresh
+          </button>
+          <button id="logout-btn" class="btn btn-logout" title="Log Out">
+            Log Out
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-container">
 
       <!-- Statistics Bar -->
       <section class="admin-stats-grid">
@@ -198,6 +234,7 @@
 
     </div>
   </main>
+  </div> <!-- End #admin-dashboard-view -->
 
   <!-- Add Cake Modal -->
   <div class="admin-modal" id="add-cake-modal">

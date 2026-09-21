@@ -20,6 +20,17 @@ app.use('/api/cakes', cakesRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/contact', contactRouter);
 
+// Admin Owner Authentication
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'paikada123';
+app.post('/api/admin/login', (req, res) => {
+  const { password } = req.body;
+  if (password && password === ADMIN_PASSWORD) {
+    res.json({ success: true, message: 'Welcome back, Owner!' });
+  } else {
+    res.status(401).json({ success: false, message: 'Incorrect owner password' });
+  }
+});
+
 // Dashboard Summary Stats Endpoint
 app.get('/api/stats', async (req, res) => {
   try {

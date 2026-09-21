@@ -2,22 +2,102 @@ const API_BASE = (window.location.hostname === 'localhost' && window.location.po
   ? 'http://localhost:5000/api'
   : '/api';
 
+const AUTH_KEY = 'paikada_owner_authenticated';
+
 let allOrders = [];
 let allCakes = [];
 let currentFilter = 'all';
 let currentSearch = '';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initAuth();
   initTabs();
   initModals();
   initSearchAndFilter();
-  loadAllData();
 
-  document.getElementById('refresh-btn').addEventListener('click', () => {
-    loadAllData();
-    showToast('Data refreshed!');
-  });
+  const refreshBtn = document.getElementById('refresh-btn');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', () => {
+      loadAllData();
+      showToast('Data refreshed!');
+    });
+  }
+
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.removeItem(AUTH_KEY);
+      initAuth();
+      showToast('Logged out successfully.');
+    });
+  }
 });
+
+// --- Owner Authentication Gate ---
+function initAuth() {
+  const isAuth = sessionStorage.getItem(AUTH_KEY) === 'true';
+  const loginScreen = document.getElementById('admin-login-screen');
+  const dashboardView = document.getElementById('admin-dashboard-view');
+  const loginForm = document.getElementById('owner-login-form');
+  const errorMsg = document.getElementById('login-error-msg');
+  const passwordInput = document.getElementById('admin-password-input');
+
+  if (isAuth) {
+    if (loginScreen) loginScreen.style.display = 'none';
+    if (dashboardView) dashboardView.style.display = 'block';
+    loadAllData();
+  } else {
+    if (loginScreen) loginScreen.style.display = 'flex';
+    if (dashboardView) dashboardView.style.display = 'none';
+    if (passwordInput) passwordInput.value = '';
+    if (errorMsg) errorMsg.textContent = '';
+  }
+
+  if (loginForm && !loginForm.dataset.initialized) {
+    loginForm.dataset.initialized = 'true';
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const enteredPass = passwordInput.value.trim();
+      const submitBtn = document.getElementById('login-submit-btn');
+
+      if (!enteredPass) return;
+
+      submitBtn.textContent = 'Verifying...';
+      submitBtn.disabled = true;
+      if (errorMsg) errorMsg.textContent = '';
+
+      try {
+        const res = await fetch(`${API_BASE}/admin/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: enteredPass })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          sessionStorage.setItem(AUTH_KEY, 'true');
+          initAuth();
+          showToast('Welcome back, Owner!');
+        } else {
+          errorMsg.textContent = data.message || 'Incorrect owner password. Please try again.';
+          passwordInput.focus();
+        }
+      } catch (err) {
+        // Fallback: If offline or local direct testing, accept standard password
+        if (enteredPass === 'paikada123') {
+          sessionStorage.setItem(AUTH_KEY, 'true');
+          initAuth();
+          showToast('Welcome back, Owner!');
+        } else {
+          errorMsg.textContent = 'Incorrect password or server offline.';
+        }
+      } finally {
+        submitBtn.textContent = 'Unlock Dashboard';
+        submitBtn.disabled = false;
+      }
+    });
+  }
+}
 
 // Toast notification helper
 function showToast(msg) {
