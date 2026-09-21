@@ -81,13 +81,46 @@ router.post('/', async (req, res) => {
       createdAt: new Date().toISOString()
     };
 
+    // Generate WhatsApp notification text & links for both baker phone numbers
+    const waLines = [
+      `*NEW ORDER - PAIKADA BAKES*`,
+      `*Order ID:* ${orderId}`,
+      `*Cake:* ${newOrder.cakeName} (${newOrder.weight}${newOrder.isEggless ? ', 100% Eggless' : ''})`,
+      `*Date:* ${newOrder.deliveryDate} ${newOrder.deliveryTime ? '(' + newOrder.deliveryTime + ')' : ''}`,
+      newOrder.customMessage ? `*Message on Cake:* "${newOrder.customMessage}"` : null,
+      `*Customer:* ${newOrder.customerName}`,
+      `*Phone:* ${newOrder.phone}`,
+      `*Fulfillment:* ${newOrder.deliveryType === 'Delivery' ? 'Home Delivery' : 'Self-Pickup'}`,
+      newOrder.deliveryAddress ? `*Address:* ${newOrder.deliveryAddress}` : null,
+      newOrder.notes ? `*Notes:* ${newOrder.notes}` : null
+    ].filter(Boolean);
+
+    const waText = encodeURIComponent(waLines.join('\n'));
+    const whatsappLinks = {
+      baker1: {
+        number: '+91 7907267035',
+        url: `https://wa.me/917907267035?text=${waText}`
+      },
+      baker2: {
+        number: '+91 8921383941',
+        url: `https://wa.me/918921383941?text=${waText}`
+      }
+    };
+
+    console.log(`[ORDER] Created ${orderId} for ${newOrder.customerName} (${newOrder.phone})`);
+    console.log(` > Baker 1 WhatsApp: ${whatsappLinks.baker1.url}`);
+    console.log(` > Baker 2 WhatsApp: ${whatsappLinks.baker2.url}`);
+
     orders.unshift(newOrder);
     await writeData(ORDERS_FILE, orders);
 
     res.status(201).json({
       success: true,
       message: `Order ${orderId} created successfully!`,
-      data: newOrder
+      data: {
+        ...newOrder,
+        whatsappLinks
+      }
     });
   } catch (error) {
     console.error('Error creating order:', error);

@@ -478,20 +478,58 @@
               placeholder="Less sugar, specific colors, photo cake request, etc."></textarea>
           </div>
 
+          <!-- WhatsApp Notification Notice -->
+          <div class="order-whatsapp-notice">
+            <span class="notice-icon">📲</span>
+            <div>
+              <strong style="color: #166534; font-size: 0.9rem;">Instant WhatsApp & Admin Order:</strong>
+              <p style="margin: 4px 0 0; font-size: 0.82rem; color: #1e3a1e;">
+                Your order is saved to our bakery system and instantly sent via WhatsApp to our baking team. Choose which number to send to:
+              </p>
+            </div>
+          </div>
+
           <!-- Modal Action Buttons -->
-          <div class="order-modal-actions">
+          <div class="order-modal-actions" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end;">
             <button type="button" class="btn btn-outline" id="order-cancel-btn">Cancel</button>
-            <button type="button" class="btn btn-secondary" id="order-direct-btn">Save Order to Bakery</button>
-            <button type="submit" class="btn btn-whatsapp" id="order-whatsapp-btn">
+            <button type="button" class="btn btn-whatsapp" id="order-whatsapp-1-btn" data-phone="917907267035">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.978L2 22l5.188-1.361a9.92 9.92 0 0 0 4.82 1.244h.005c5.507 0 9.99-4.478 9.99-9.985 0-2.67-1.037-5.18-2.92-7.065C17.197 3.037 14.683 2 12.012 2zm5.72 14.15c-.244.688-1.218 1.25-1.67 1.32-.455.07-1.016.144-3.04-.678-2.587-1.05-4.218-3.66-4.347-3.83-.127-.17-1.042-1.385-1.042-2.64 0-1.257.656-1.875.89-2.128.232-.254.507-.318.676-.318.169 0 .338.001.485.008.15.007.352-.057.55.42.2.484.686 1.67.747 1.797.06.127.102.275.017.444-.085.17-.127.276-.254.424-.127.148-.266.33-.38.455-.127.127-.26.265-.113.52.148.254.656 1.08 1.408 1.748.97.863 1.787 1.13 2.04 1.258.254.127.402.106.55-.064.148-.17.635-.742.805-1 .17-.258.338-.212.57-.127.233.085 1.48.699 1.734.826.254.127.423.19.486.3.064.11.064.636-.18 1.324z" />
+                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.978L2 22l5.188-1.361a9.92 9.92 0 0 0 4.82 1.244h.005c5.507 0 9.99-4.478 9.99-9.985 0-2.67-1.037-5.18-2.92-7.065C17.197 3.037 14.683 2 12.012 2zm5.72 14.15c-.244.688-1.218 1.25-1.67 1.32-.455.07-1.016.144-3.04-.678-2.587-1.05-4.218-3.66-4.347-3.83-.127-.17-1.042-1.385-1.042-2.64 0-1.257.656-1.875.89-2.128.232-.254.507-.318.676-.318.169 0 .338.001.485.008.15.007.352-.057.55.42.2.484.686 1.67.747 1.797.06.127.102.275.017.444-.085.17-.127.276-.254.424-.127.148-.266.33-.38.455-.127.127-.26.265-.113.52.148.254.656 1.08 1.408 1.748.97.863 1.787 1.13 2.04 1.258.254.127.402.106.55-.064.148-.17.635-.742.805-1 .17-.258.338-.212.57-.127.233.085 1.48.699 1.734.826.254.127.423.19.486.3.064.11.064.636-.18 1.324z" />
               </svg>
-              Confirm & Open WhatsApp
+              Send to +91 7907267035
+            </button>
+            <button type="button" class="btn btn-whatsapp" id="order-whatsapp-2-btn" data-phone="918921383941">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.978L2 22l5.188-1.361a9.92 9.92 0 0 0 4.82 1.244h.005c5.507 0 9.99-4.478 9.99-9.985 0-2.67-1.037-5.18-2.92-7.065C17.197 3.037 14.683 2 12.012 2zm5.72 14.15c-.244.688-1.218 1.25-1.67 1.32-.455.07-1.016.144-3.04-.678-2.587-1.05-4.218-3.66-4.347-3.83-.127-.17-1.042-1.385-1.042-2.64 0-1.257.656-1.875.89-2.128.232-.254.507-.318.676-.318.169 0 .338.001.485.008.15.007.352-.057.55.42.2.484.686 1.67.747 1.797.06.127.102.275.017.444-.085.17-.127.276-.254.424-.127.148-.266.33-.38.455-.127.127-.26.265-.113.52.148.254.656 1.08 1.408 1.748.97.863 1.787 1.13 2.04 1.258.254.127.402.106.55-.064.148-.17.635-.742.805-1 .17-.258.338-.212.57-.127.233.085 1.48.699 1.734.826.254.127.423.19.486.3.064.11.064.636-.18 1.324z" />
+              </svg>
+              Send to +91 8921383941
             </button>
           </div>
         </form>
       </div>
+    </div>
+  </div>
+
+  <!-- Order Success Notification Popup -->
+  <div class="order-success-modal" id="order-success-modal">
+    <div class="order-success-card">
+      <div class="success-icon-check">✓</div>
+      <h3>Order Saved to Bakery!</h3>
+      <p id="success-order-id-label" class="order-id-highlight">Order #PB-1234</p>
+      <p style="color: #634f48; font-size: 0.9rem; margin-bottom: 20px;">
+        Your order is logged on the owner dashboard. Tap below to send the complete order details via WhatsApp:
+      </p>
+      <div class="success-wa-buttons">
+        <a id="success-wa-link-1" href="#" target="_blank" class="btn btn-whatsapp btn-block">
+          📲 Send to Baker 1 (+91 7907267035)
+        </a>
+        <a id="success-wa-link-2" href="#" target="_blank" class="btn btn-whatsapp btn-block">
+          📲 Send to Baker 2 (+91 8921383941)
+        </a>
+      </div>
+      <button type="button" class="btn btn-outline btn-block" style="margin-top: 15px;" id="success-close-btn">
+        Done
+      </button>
     </div>
   </div>
 

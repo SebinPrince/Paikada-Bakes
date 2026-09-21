@@ -119,10 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close lightbox on escape key
+  // Close modals on escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-      closeLightbox();
+    if (e.key === 'Escape') {
+      if (lightbox && lightbox.classList.contains('active')) closeLightbox();
+      if (typeof closeOrderModal === 'function') closeOrderModal();
+      if (typeof closeSuccessModal === 'function') closeSuccessModal();
     }
   });
 
@@ -773,8 +775,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Process and Submit Order to Backend
-  const submitCakeOrder = async (sendToWhatsApp = false) => {
+  // --- Order Success Modal Elements ---
+  const orderSuccessModal = document.getElementById('order-success-modal');
+  const successCloseBtn = document.getElementById('success-close-btn');
+  const successOrderIdLabel = document.getElementById('success-order-id-label');
+  const successWaLink1 = document.getElementById('success-wa-link-1');
+  const successWaLink2 = document.getElementById('success-wa-link-2');
+
+  const closeSuccessModal = () => {
+    if (!orderSuccessModal) return;
+    orderSuccessModal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  if (successCloseBtn) successCloseBtn.addEventListener('click', closeSuccessModal);
+  if (orderSuccessModal) {
+    orderSuccessModal.addEventListener('click', (e) => {
+      if (e.target === orderSuccessModal) closeSuccessModal();
+    });
+  }
+
+  // Dual WhatsApp Order Buttons in Order Form
+  const orderWa1Btn = document.getElementById('order-whatsapp-1-btn');
+  const orderWa2Btn = document.getElementById('order-whatsapp-2-btn');
+
+  // Process and Submit Order to Backend & WhatsApp
+  const submitCakeOrder = async (targetPhone = '917907267035') => {
     const cakeName = document.getElementById('order-cake-name').value;
     const customerName = document.getElementById('order-customer-name').value.trim();
     const phone = document.getElementById('order-phone').value.trim();
@@ -829,42 +855,73 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Order saved in browser session (backend unreachable):', err);
     }
 
-    showSiteToast(`Order #${orderId} confirmed! Thank you ${customerName}.`, 'success');
+    // Build formatted WhatsApp message text
+    const waMsgLines = [
+      `*NEW ORDER - PAIKADA BAKES*`,
+      `*Order ID:* ${orderId}`,
+      `*Cake:* ${cakeName} (${weight}${isEggless ? ', 100% Eggless' : ''})`,
+      `*Date:* ${deliveryDate} ${deliveryTime ? '(' + deliveryTime + ')' : ''}`,
+      customMessage ? `*Message on Cake:* "${customMessage}"` : null,
+      `*Customer:* ${customerName}`,
+      `*Phone:* ${phone}`,
+      `*Fulfillment:* ${deliveryType === 'Delivery' ? 'Home Delivery' : 'Self-Pickup'}`,
+      deliveryAddress ? `*Address:* ${deliveryAddress}` : null,
+      notes ? `*Notes:* ${notes}` : null
+    ].filter(Boolean);
+
+    const waText = encodeURIComponent(waMsgLines.join('\n'));
+    const waUrl1 = `https://wa.me/917907267035?text=${waText}`;
+    const waUrl2 = `https://wa.me/918921383941?text=${waText}`;
+
+    // Close order modal and reset form
     closeOrderModal();
     if (orderForm) orderForm.reset();
 
-    // If requested, open WhatsApp with complete order summary
-    if (sendToWhatsApp) {
-      const waMsgLines = [
-        `*NEW ORDER - PAIKADA BAKES*`,
-        `*Order ID:* ${orderId}`,
-        `*Cake:* ${cakeName} (${weight}${isEggless ? ', 100% Eggless' : ''})`,
-        `*Date:* ${deliveryDate} ${deliveryTime ? '(' + deliveryTime + ')' : ''}`,
-        customMessage ? `*Message on Cake:* "${customMessage}"` : null,
-        `*Customer:* ${customerName}`,
-        `*Phone:* ${phone}`,
-        `*Fulfillment:* ${deliveryType === 'Delivery' ? 'Home Delivery' : 'Self-Pickup'}`,
-        deliveryAddress ? `*Address:* ${deliveryAddress}` : null,
-        notes ? `*Notes:* ${notes}` : null
-      ].filter(Boolean);
+    // 1. Immediately open WhatsApp for the selected baker in a new tab
+    const primaryUrl = targetPhone === '918921383941' ? waUrl2 : waUrl1;
+    window.open(primaryUrl, '_blank');
 
-      const waText = encodeURIComponent(waMsgLines.join('\n'));
-      const waUrl = `https://wa.me/918921383941?text=${waText}`;
-      window.open(waUrl, '_blank');
+    showSiteToast(`Order #${orderId} saved to Admin Portal! Opening WhatsApp...`, 'success');
+
+    // 2. Open Success Dialog with 1-click button to send WhatsApp to the 2nd number too
+    if (orderSuccessModal) {
+      if (successOrderIdLabel) successOrderIdLabel.textContent = `Order #${orderId}`;
+      if (successWaLink1) successWaLink1.setAttribute('href', waUrl1);
+      if (successWaLink2) successWaLink2.setAttribute('href', waUrl2);
+
+      // Label which one was already opened and guide user to send to the second
+      if (targetPhone === '917907267035') {
+        if (successWaLink1) successWaLink1.innerHTML = '✓ Baker 1 (+91 7907267035) Opened (Tap to re-send)';
+        if (successWaLink2) successWaLink2.innerHTML = '📲 Send Copy to Baker 2 (+91 8921383941)';
+      } else {
+        if (successWaLink1) successWaLink1.innerHTML = '📲 Send Copy to Baker 1 (+91 7907267035)';
+        if (successWaLink2) successWaLink2.innerHTML = '✓ Baker 2 (+91 8921383941) Opened (Tap to re-send)';
+      }
+
+      orderSuccessModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
   };
+
+  // Wire button event listeners
+  if (orderWa1Btn) {
+    orderWa1Btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      submitCakeOrder('917907267035');
+    });
+  }
+
+  if (orderWa2Btn) {
+    orderWa2Btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      submitCakeOrder('918921383941');
+    });
+  }
 
   if (orderForm) {
     orderForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      submitCakeOrder(true); // Default submit opens WhatsApp with Order ID
-    });
-  }
-
-  if (orderDirectBtn) {
-    orderDirectBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      submitCakeOrder(false); // Direct save to DB without WhatsApp
+      submitCakeOrder('917907267035');
     });
   }
 

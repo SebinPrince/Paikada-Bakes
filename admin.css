@@ -365,6 +365,18 @@
   text-decoration: none;
 }
 
+.btn-sm-whatsapp:hover {
+  background: #1eb857;
+}
+
+.btn-sm-baker {
+  background: #166534;
+}
+
+.btn-sm-baker:hover {
+  background: #14532d;
+}
+
 .btn-sm-delete {
   background: #fee2e2;
   color: #b91c1c;

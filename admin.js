@@ -289,6 +289,19 @@ function renderOrders() {
     const waText = encodeURIComponent(`Hello ${order.customerName}, this is regarding your Paikada Bakes Order #${order.orderId} (${order.cakeName}).`);
     const waLink = `https://wa.me/${cleanPhone.startsWith('91') ? cleanPhone : '91' + cleanPhone}?text=${waText}`;
 
+    const bakerSummary = encodeURIComponent(
+      `*ORDER #${order.orderId} - PAIKADA BAKES*\n` +
+      `*Status:* ${order.status}\n` +
+      `*Cake:* ${order.cakeName} (${order.weight || '1 kg'}${order.isEggless ? ', Eggless' : ''})\n` +
+      `*Date:* ${order.deliveryDate || ''} ${order.deliveryTime ? '(' + order.deliveryTime + ')' : ''}\n` +
+      (order.customMessage ? `*Message:* "${order.customMessage}"\n` : '') +
+      `*Customer:* ${order.customerName} (${order.phone})\n` +
+      `*Delivery:* ${order.deliveryType || 'Pickup'}${order.deliveryAddress ? ' - ' + order.deliveryAddress : ''}\n` +
+      (order.notes ? `*Notes:* ${order.notes}` : '')
+    );
+    const baker1Wa = `https://wa.me/917907267035?text=${bakerSummary}`;
+    const baker2Wa = `https://wa.me/918921383941?text=${bakerSummary}`;
+
     return `
       <tr id="row-${order.id}">
         <td><span class="order-id-badge">${order.orderId}</span><br><small style="color: #999;">${orderDate}</small></td>
@@ -319,7 +332,13 @@ function renderOrders() {
         <td>
           <div class="table-actions">
             <a href="${waLink}" target="_blank" class="btn-sm-whatsapp" title="WhatsApp Customer">
-              Chat
+              Customer
+            </a>
+            <a href="${baker1Wa}" target="_blank" class="btn-sm-whatsapp btn-sm-baker" title="Forward order to Baker 1 (+91 7907267035)">
+              Baker 1
+            </a>
+            <a href="${baker2Wa}" target="_blank" class="btn-sm-whatsapp btn-sm-baker" title="Forward order to Baker 2 (+91 8921383941)">
+              Baker 2
             </a>
             <button class="btn-sm-delete" onclick="deleteOrder('${order.id}', '${order.orderId}')" title="Delete">
               &times;
